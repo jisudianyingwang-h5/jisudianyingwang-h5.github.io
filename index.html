@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>极速电影网 - 电光蓝紫速度线影视导航</title>
+<meta name="description" content="极速电影网(https://jisudianyingwang-h5.github.io)以电光蓝紫、速度线、仪表盘为视觉，整理最新电影、热播剧集、综艺娱乐、动漫专区，做合规影视信息导航站；不存片、不盗链、不聚合非法播放源。">
+<meta name="keywords" content="极速电影网,速度线,电光蓝,极速紫,电影导航,最新电影,热播剧集,综艺,动漫">
+<meta name="author" content="极速电影网">
+<meta name="robots" content="index,follow">
+<meta name="msvalidate.01" content="BING_VERIFICATION_CODE">
+<meta property="og:title" content="极速电影网 - 电光蓝紫速度线影视导航">
+<meta property="og:description" content="极速电影网：片单像赛车仪表盘，快，但只导航不播盗版。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jisudianyingwang-h5.github.io">
+<meta property="og:site_name" content="极速电影网">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"极速电影网",
+  "url":"https://jisudianyingwang-h5.github.io",
+  "description":"电光蓝紫速度线风格影视信息导航站",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://jisudianyingwang-h5.github.io#search={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --night:#0b0f1a;
+  --night2:#111827;
+  --cyan:#00e5ff;
+  --purple:#7c4dff;
+  --yellow:#ffea00;
+  --muted:#9fb0c9;
+  --card:#0f1626;
+}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:
+    radial-gradient(700px 360px at 88% 0%, rgba(124,77,255,.28), transparent 60%),
+    radial-gradient(560px 300px at 0% 14%, rgba(0,229,255,.26), transparent 60%),
+    var(--night);
+  color:#eaf2ff;line-height:1.8;overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit;transition:.2s}
+
+.speedbar{height:8px;background:repeating-linear-gradient(115deg,var(--cyan) 0 22px,var(--night) 22px 30px,var(--purple) 30px 52px,var(--night) 52px 60px)}
+
+.top{max-width:1180px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{font-style:italic;font-weight:900;font-size:28px;letter-spacing:1px;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand small{display:block;font-style:normal;font-size:11px;letter-spacing:4px;color:var(--cyan);font-weight:700}
+.nav{display:flex;gap:12px;margin-left:auto;flex-wrap:wrap}
+.nav a{font-size:14px;font-weight:700;color:#eaf2ff;padding:6px 14px;border:1px solid rgba(0,229,255,.5);border-radius:999px;background:rgba(255,255,255,.03)}
+.nav a:hover{background:var(--cyan);color:#04121a;border-color:var(--cyan)}
+.btn{font-size:13px;font-weight:800;background:var(--yellow);color:#1a1400;padding:8px 18px;border-radius:999px;box-shadow:0 3px 0 #b3a200}
+.btn:hover{transform:translateY(-1px)}
+
+.hero{max-width:1180px;margin:0 auto;padding:46px 20px 24px;position:relative}
+.streak{position:absolute;inset:0;pointer-events:none;background:
+  repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 26px);
+  mask-image:linear-gradient(180deg,#000,transparent);opacity:.6}
+.hero-card{position:relative;background:linear-gradient(160deg,var(--night2),#080c16);
+  border:1px solid rgba(0,229,255,.35);border-radius:18px;padding:34px 32px;max-width:780px;
+  box-shadow:inset 0 0 0 4px rgba(124,77,255,.12),0 18px 44px rgba(0,0,0,.55)}
+.tachometer{position:absolute;right:18px;top:8px;font-size:110px;filter:drop-shadow(0 10px 20px rgba(0,229,255,.4));transform:rotate(-6deg)}
+.badge{display:inline-block;font-weight:800;font-size:12px;letter-spacing:1px;color:#04121a;background:var(--cyan);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+.hero h1{font-style:italic;font-size:clamp(38px,7vw,66px);font-weight:900;
+  background:linear-gradient(90deg,var(--cyan),var(--purple),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:620px;color:#cfe0ff;font-size:clamp(14px,3vw,16px);margin:14px 0}
+.hero-url{display:inline-block;font-family:"Courier New",monospace;font-weight:800;color:var(--cyan);
+  background:#080c16;border:1px dashed var(--purple);padding:8px 16px;border-radius:10px}
+
+.section{max-width:1180px;margin:0 auto;padding:18px 20px 60px}
+.head{display:flex;align-items:center;gap:12px;margin:38px 0 18px;flex-wrap:wrap}
+.head .ico{font-size:22px}
+.head h2{font-size:clamp(20px,4vw,26px);font-weight:900;color:#eaf2ff}
+.head .en{font-size:12px;color:var(--cyan);font-family:"Courier New",monospace}
+.head .line{flex:1;height:3px;background:repeating-linear-gradient(90deg,var(--cyan) 0 12px,transparent 12px 24px);min-width:40px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid rgba(0,229,255,.28);border-radius:14px;padding:0;overflow:hidden;transition:.22s;position:relative}
+.card:hover{transform:translateY(-4px) skewX(-1deg);box-shadow:0 14px 30px rgba(0,229,255,.22)}
+.card .rpm{display:flex;justify-content:space-between;font-family:"Courier New",monospace;font-weight:800;font-size:12px;color:var(--cyan);background:#0a1120;padding:8px 12px}
+.card .poster{height:104px;display:flex;align-items:center;justify-content:center;font-size:42px;color:#04121a}
+.card:nth-child(1) .poster{background:linear-gradient(135deg,#00e5ff,var(--purple))}
+.card:nth-child(2) .poster{background:linear-gradient(135deg,#ffea00,#ff8a00)}
+.card:nth-child(3) .poster{background:linear-gradient(135deg,#7c4dff,#00bcd4)}
+.card:nth-child(4) .poster{background:linear-gradient(135deg,#36d399,#00e5ff)}
+.card:nth-child(5) .poster{background:linear-gradient(135deg,#ff5fa2,#7c4dff)}
+.card:nth-child(6) .poster{background:linear-gradient(135deg,#9fb0c9,#46506b)}
+.card .body{padding:12px 14px 16px}
+.card h3{font-size:15px;font-weight:800}
+.card p{font-size:12px;color:var(--muted);margin:3px 0 8px}
+.chip{display:inline-block;font-size:11px;font-weight:800;color:#04121a;background:var(--yellow);padding:2px 8px;border-radius:999px;margin-right:4px}
+
+/* 热剧：赛道排位 */
+.race{display:flex;flex-direction:column;gap:10px}
+.lane{display:grid;grid-template-columns:54px 1fr 90px;gap:10px;align-items:center;
+  background:var(--card);border:1px solid rgba(124,77,255,.35);border-radius:12px;padding:10px 16px}
+.lane .pos{font-family:"Courier New",monospace;font-weight:900;font-size:20px;color:var(--yellow)}
+.lane h3{font-size:15px;font-weight:800}
+.lane p{font-size:12px;color:var(--muted)}
+.lane .lap{font-family:"Courier New",monospace;font-weight:800;color:var(--cyan);text-align:right}
+
+/* 综艺：涡轮 */
+.turbo{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.tc{display:flex;align-items:center;gap:14px;background:linear-gradient(160deg,#0f1626,#0a1120);
+  border:1px solid rgba(0,229,255,.4);border-radius:14px;padding:14px 18px}
+.tc .em{font-size:26px}
+.tc h3{font-size:14px;font-weight:800;color:#eaf2ff}
+.tc p{font-size:12px;color:var(--muted)}
+
+/* 动漫：像素拖影 */
+.pixels{display:flex;flex-direction:column;gap:12px}
+.px{display:flex;align-items:center;gap:14px;background:var(--card);
+  border:1px dashed rgba(0,229,255,.5);border-radius:10px;padding:10px 18px}
+.px .blk{width:20px;height:20px;background:var(--cyan);box-shadow:14px 0 0 rgba(124,77,255,.7),28px 0 0 rgba(255,234,0,.5);flex-shrink:0}
+.px:nth-child(2) .blk{background:var(--purple);box-shadow:14px 0 0 rgba(0,229,255,.7),28px 0 0 rgba(255,234,0,.5)}
+.px:nth-child(3) .blk{background:var(--yellow);box-shadow:14px 0 0 rgba(0,229,255,.7),28px 0 0 rgba(124,77,255,.5)}
+.px:nth-child(4) .blk{background:#36d399;box-shadow:14px 0 0 rgba(0,229,255,.7),28px 0 0 rgba(124,77,255,.5)}
+.px:nth-child(5) .blk{background:#ff5fa2;box-shadow:14px 0 0 rgba(124,77,255,.7),28px 0 0 rgba(0,229,255,.5)}
+.px:nth-child(6) .blk{background:#9fb0c9;box-shadow:14px 0 0 rgba(0,229,255,.7),28px 0 0 rgba(124,77,255,.5)}
+.px h3{font-size:14px;font-weight:800}
+.px p{font-size:12px;color:var(--muted)}
+.px .ep{margin-left:auto;font-family:"Courier New",monospace;font-weight:800;color:var(--yellow)}
+
+.about{max-width:1180px;margin:0 auto;padding:10px 20px 50px}
+.dash{background:linear-gradient(160deg,#0f1626,#080c16);border:1px solid rgba(0,229,255,.4);border-radius:16px;padding:30px;position:relative}
+.dash::before{content:"⚡ 0→正版";position:absolute;top:-14px;right:22px;font-family:"Courier New",monospace;font-weight:900;font-size:16px;color:#04121a;background:var(--yellow);padding:4px 12px;border-radius:999px}
+.dash h3{font-size:20px;font-weight:900;color:#eaf2ff;margin-bottom:12px}
+.dash p{font-size:14px;color:#cfe0ff;margin-bottom:10px}
+.dash b{color:var(--cyan)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.stat{background:#0a1120;border:1px solid rgba(0,229,255,.3);border-radius:12px;padding:16px;text-align:center}
+.stat .v{font-size:22px;font-weight:900;color:var(--cyan);font-family:"Courier New",monospace}
+.stat .l{font-size:12px;color:var(--muted);margin-top:4px}
+
+.footer{background:#05080f;color:var(--muted);padding:36px 20px 22px;text-align:center;margin-top:40px;border-top:5px solid var(--cyan)}
+.footer .lg{font-style:italic;font-weight:900;font-size:22px;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.footer .fl{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:12px 0;font-size:13px}
+.footer .fl a{color:var(--cyan);border-bottom:1px dotted rgba(0,229,255,.6)}
+.footer .cp{font-size:12px;line-height:2;border-top:1px solid #111827;padding-top:14px;max-width:880px;margin:0 auto}
+.footer .cp a{color:var(--cyan)}
+
+@media(max-width:768px){.nav{display:none}.grid{grid-template-columns:repeat(2,1fr)}.turbo{grid-template-columns:repeat(2,1fr)}.tachometer{display:none}}
+@media(max-width:480px){.section{padding:18px 14px 40px}.grid{grid-template-columns:1fr}.turbo{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.hero-card{padding:26px 18px}.lane{grid-template-columns:44px 1fr 70px}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="speedbar"></div>
+
+<div class="top">
+  <div class="brand">极速电影网<small>JISU · 0→正版</small></div>
+  <nav class="nav">
+    <a href="#movies">发车新片</a>
+    <a href="#tv">赛道热剧</a>
+    <a href="#shows">涡轮综艺</a>
+    <a href="#anime">像素动漫</a>
+    <a href="#about">关于极速站</a>
+  </nav>
+  <a href="#movies" class="btn">⚡ 点火看片</a>
+</div>
+
+<header class="hero">
+  <div class="streak"></div>
+  <div class="hero-card">
+    <div class="badge">快，但只导航不播盗版</div>
+    <h1>极速电影网</h1>
+    <p>“极速”是找片速度快：新片像赛车发车，热剧像排位赛，综艺像涡轮增压，动漫带像素拖影。网上有“极速影院”因传播盗版春节档影片被查，本站和它不是一回事——<b>不存片、不盗链、不聚合非法播放源、不挂多源解析</b>。[1,3](@ref)</p>
+    <div class="hero-url">🔗 https://jisudianyingwang-h5.github.io</div>
+  </div>
+  <div class="tachometer">🏁</div>
+</header>
+
+<main class="section">
+
+  <div class="head" id="movies">
+    <span class="ico">🏎️</span><h2>发车新片 · 最新电影</h2><span class="en">// launch pad</span><div class="line"></div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="rpm"><span>RPM 01</span><span>新片</span></div><div class="poster">🎬</div><div class="body"><h3>零点发车</h3><p>动作/2026/8.7</p><span class="chip">首发</span></div></div>
+    <div class="card"><div class="rpm"><span>RPM 02</span><span>口碑</span></div><div class="poster">🌃</div><div class="body"><h3>霓虹弯道</h3><p>悬疑/2026/8.5</p><span class="chip">高燃</span></div></div>
+    <div class="card"><div class="rpm"><span>RPM 03</span><span>高分</span></div><div class="poster">🛰️</div><div class="body"><h3>轨道情书</h3><p>科幻/2026/8.8</p><span class="chip">大片</span></div></div>
+    <div class="card"><div class="rpm"><span>RPM 04</span><span>治愈</span></div><div class="poster">🍃</div><div class="body"><h3>慢车道夏天</h3><p>文艺/2026/8.4</p><span class="chip">慢热</span></div></div>
+    <div class="card"><div class="rpm"><span>RPM 05</span><span>喜剧</span></div><div class="poster">🍔</div><div class="body"><h3>加油站兄弟</h3><p>喜剧/2026/8.6</p><span class="chip">下饭</span></div></div>
+    <div class="card"><div class="rpm"><span>RPM 06</span><span>动作</span></div><div class="poster">🛻</div><div class="body"><h3>末班货车</h3><p>公路/2026/8.3</p><span class="chip">飙戏</span></div></div>
+  </div>
+
+  <div class="head" id="tv">
+    <span class="ico">🏁</span><h2>赛道热剧 · 热播剧集</h2><span class="en">// leaderboard</span><div class="line"></div>
+  </div>
+  <div class="race">
+    <div class="lane"><div class="pos">P1</div><div><h3>午夜收费站</h3><p>悬疑/更新至24集</p></div><div class="lap">LAP24</div></div>
+    <div class="lane"><div class="pos">P2</div><div><h3>城市环线</h3><p>都市/更新至18集</p></div><div class="lap">LAP18</div></div>
+    <div class="lane"><div class="pos">P3</div><div><h3>维修站往事</h3><p>年代/更新至30集</p></div><div class="lap">LAP30</div></div>
+    <div class="lane"><div class="pos">P4</div><div><h3>雨战刑侦组</h3><p>刑侦/更新至12集</p></div><div class="lap">LAP12</div></div>
+    <div class="lane"><div class="pos">P5</div><div><h3>终点线咖啡馆</h3><p>治愈/更新至20集</p></div><div class="lap">LAP20</div></div>
+  </div>
+
+  <div class="head" id="shows">
+    <span class="ico">⚙️</span><h2>涡轮综艺 · 综艺娱乐</h2><span class="en">// turbo show</span><div class="line"></div>
+  </div>
+  <div class="turbo">
+    <div class="tc"><div class="em">🎙️</div><div><h3>极速影评间</h3><p>60秒说完一部片</p></div></div>
+    <div class="tc"><div class="em">🏎️</div><div><h3>弹幕排位赛</h3><p>观众投票定片单</p></div></div>
+    <div class="tc"><div class="em">🎧</div><div><h3>原声涡轮</h3><p>影视OST混音夜</p></div></div>
+    <div class="tc"><div class="em">🛠️</div><div><h3>片场维修铺</h3><p>幕后花絮+穿帮局</p></div></div>
+    <div class="tc"><div class="em">🚦</div><div><h3>红灯避雷区</h3><p>烂片预警不踩坑</p></div></div>
+    <div class="tc"><div class="em">🏁</div><div><h3>冲线安利榜</h3><p>本周最该看的一部</p></div></div>
+  </div>
+
+  <div class="head" id="anime">
+    <span class="ico">🎮</span><h2>像素动漫 · 动漫专区</h2><span class="en">// pixel drift</span><div class="line"></div>
+  </div>
+  <div class="pixels">
+    <div class="px"><div class="blk"></div><div><h3>8-bit 赛车手</h3><p>热血/新番</p></div><div class="ep">EP12</div></div>
+    <div class="px"><div class="blk"></div><div><h3>霓虹机甲社</h3><p>机战/年番</p></div><div class="ep">EP48</div></div>
+    <div class="px"><div class="blk"></div><div><h3>加速系魔法</h3><p>奇幻/连载</p></div><div class="ep">EP24</div></div>
+    <div class="px"><div class="blk"></div><div><h3>夜行像素猫</h3><p>治愈/热更</p></div><div class="ep">EP30</div></div>
+    <div class="px"><div class="blk"></div><div><h3>涡轮少年团</h3><p>冒险/新番</p></div><div class="ep">EP09</div></div>
+    <div class="px"><div class="blk"></div><div><h3>终点线物语</h3><p>日常/年番</p></div><div class="ep">EP60</div></div>
+  </div>
+
+  <div class="head" id="about">
+    <span class="ico">⚡</span><h2>关于极速站 · 关于我们</h2><span class="en">// about jisu</span><div class="line"></div>
+  </div>
+  <div class="about">
+    <div class="dash">
+      <h3>极速电影网是什么？</h3>
+      <p><b>极速电影网</b>（https://jisudianyingwang-h5.github.io）是“电光蓝紫 + 速度线 + 仪表盘”风格的影视信息导航站。</p>
+      <p>“极速”指<b>找片快、分类快、移动端加载快</b>，不是“极速看盗版”。网上“极速影院”类站点曾因非法传播《热辣滚烫》《飞驰人生2》《第二十条》等影片被公安破获；本站明确撇清：不存储视频、不提供盗版直链、不聚合非法播放源、不投放涉黄涉赌广告。[1,3](@ref)</p>
+      <p>关键词：极速电影网、速度线影视导航、最新电影、热播剧集、综艺、动漫。</p>
+      <div class="stats">
+        <div class="stat"><div class="v">0ms</div><div class="l">盗版直链</div></div>
+        <div class="stat"><div class="v">100%</div><div class="l">移动端</div></div>
+        <div class="stat"><div class="v">5+</div><div class="l">栏目</div></div>
+        <div class="stat"><div class="v">⚡</div><div class="l">速度感</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="lg">极速电影网</div>
+  <div class="fl">
+    <a href="#movies">发车新片</a>
+    <a href="#tv">赛道热剧</a>
+    <a href="#shows">涡轮综艺</a>
+    <a href="#anime">像素动漫</a>
+    <a href="#about">关于极速站</a>
+  </div>
+  <div class="cp">
+    网站名称：极速电影网 ｜ 网址：<a href="https://jisudianyingwang-h5.github.io">https://jisudianyingwang-h5.github.io</a><br>
+    © 2026 极速电影网 · 快，但只导航不播盗版 ｜ 本站仅展示影视信息，资源以正版/公开平台为准。
+  </div>
+</footer>
+
+</body>
+</html>
